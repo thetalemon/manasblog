@@ -1,11 +1,20 @@
 import { client } from '../../libs/client';
+import Image from 'next/image'
 import styles from '../../styles/Home.module.scss';
 
 export default function BlogId({ blog }) {
   return (
     <main className={styles.main}>
       <h1 className={styles.title}>{blog.title}</h1>
-      <p className={styles.publishedAt}>{blog.publishedAt}</p>
+      <p className={styles.publishedAt}>投稿日時: {blog.publishedAt}</p>
+      <p className="category">カテゴリ: {blog.category && `${blog.category.name}`}</p>
+      <Image
+        src={blog.eyecatch.url}
+        alt="eyecatch"
+        width={150}
+        height={150}
+      />
+
       <div
         dangerouslySetInnerHTML={{
           __html: `${blog.body}`,
