@@ -1,33 +1,22 @@
 import { client } from '../../libs/client'
-import Image from 'next/image'
-import styles from '../../styles/Home.module.scss'
+import styles from '../../styles/Index.module.scss'
 import { BlogContentList } from '../../src/types/microCMS'
+import CommonMeta from '../../components/meta'
+import SealFrame from '../../components/frame/sealFrame'
+import GeneralTitle from '../../components/title/generalTitle'
+import BlogContentArea from '../../components/blogContentArea/blogContentArea'　
 
 export default function BlogId({ blog }) {
-
   return (
-    <main className={styles.main}>
-      <h1 className={styles.title}>{blog.title}</h1>
-      <p className={styles.publishedAt}>投稿日時: {blog.publishedAt}</p>
-      <p className="category">カテゴリ: {blog.category && `${blog.category.name}`}</p>
-
-      {blog.eyecatch && blog.eyecatch.url
-        ? <Image
-        src={blog.eyecatch.url}
-        alt="eyecatch"
-        width={150}
-        height={150}
-        />
-        : ''
-      }
-
-      <div
-        dangerouslySetInnerHTML={{
-          __html: `${blog.body}`,
-        }}
-        className={styles.post}
-      />
-    </main>
+    <div>
+      <CommonMeta/>
+      <main className={styles.main}>
+        <GeneralTitle />
+        <SealFrame>
+          <BlogContentArea blog={blog} />
+        </SealFrame>
+      </main>
+    </div>
   );
 }
 

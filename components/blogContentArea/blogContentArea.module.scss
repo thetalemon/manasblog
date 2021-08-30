@@ -1,15 +1,18 @@
-.main {
-  width: 960px;
-  padding: 0 10px;
-  margin: 0 auto;
-}
 
-.title {
-  margin-bottom: 20px;
+.titleArea {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  .title {
+    margin: 0;
+    padding: 0;
+    font-size: 24px;
+    font-weight: 600;
+  }
 }
 
 .publishedAt {
-  margin-bottom: 40px;
+  margin-bottom: auto;
 }
 
 .post {

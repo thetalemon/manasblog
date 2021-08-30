@@ -3,81 +3,8 @@
   margin: 0 auto;
 }
 
-.blogTitleArea{
-  position: relative;
-  .blogTitle {
-    position: absolute;
-    top: 170px;
-    left: 420px;
-    color: white;
-    font-size: 60px;
-    transform: translate(-50%, -50%);
-  }
-}
-
-
 .lists {
   list-style-type: none;
   margin: 0;
   padding: 0;
-}
-
-.card {
-  position: relative;
-  width: 840px;
-  padding: 20px;
-  padding-top: 30px;
-  border: 2px solid #add8e6;
-  margin-top: 50px;
-}
-
-.seal {
-  position: absolute;
-  top: -32px;
-  left: calc(420px - 32px);
-}
-.titleArea {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-}
-
-.title {
-  margin: 0;
-  padding: 0;
-  font-size: 24px;
-  font-weight: 600;
-}
-
-.publishedAt {
-  // margin-bottom: 20px;
-  margin-bottom: auto;
-}
-
-.post {
-  & > h1 {
-    font-size: 30px;
-    font-weight: bold;
-    margin: 40px 0 20px;
-    background-color: #eee;
-    padding: 10px 20px;
-    border-radius: 5px;
-  }
-
-  & > h2 {
-    font-size: 24px;
-    font-weight: bold;
-    margin: 40px 0 16px;
-    border-bottom: 1px solid #ddd;
-  }
-
-  & > p {
-    line-height: 1.8;
-    letter-spacing: 0.2px;
-  }
-
-  & > ol {
-    list-style-type: decimal;
-    list-style-position: inside;
-  }
 }
