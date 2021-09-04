@@ -1,18 +1,30 @@
 
-import styles from './title.module.scss'
 import Image from 'next/image'
 import title from '../../public/aza156.png'
+import styled from '@emotion/styled'
 
+const BlogTitleAreaDiv = styled.div`
+  position: relative;
+`
+
+const BlogTitleH2 = styled.h2`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: white;
+  font-size: 50px;
+  transform: translate(-50%, -50%);
+`
 export default function SealFrame() {
   return (
-    <div className={styles.blogTitleArea}>
+    <BlogTitleAreaDiv>
     <Image
       src={title}
       alt="eyecatch"
       width={840}
       height={362}
     />
-    <h2 className={styles.blogTitle}>manasblog</h2>
-  </div>
+    <BlogTitleH2>manasblog</BlogTitleH2>
+  </BlogTitleAreaDiv>
   );
 }

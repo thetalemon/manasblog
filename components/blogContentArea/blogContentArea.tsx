@@ -1,17 +1,73 @@
-import styles from './blogContentArea.module.scss'
 import Image from 'next/image'
 import { transformDate } from '../format/date'
-import Link from "next/link";
+import styled from '@emotion/styled'
+
+const TitleAreaDiv = styled.div`
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+  align-items: baseline;
+  @media (max-width: 840px) {
+    display: block;
+  }
+`
+const TitleAnchor = styled.a`
+  display: block;
+  margin: 0;
+  padding: 0;
+  font-size: 24px;
+  font-weight: 600;
+  @media (max-width: 840px) {
+    display: block;
+    margin-top: 8px;
+  }
+`
+const PublishedAtDiv = styled.p`
+  display: block;
+  margin: 0;
+  @media (max-width: 840px) {
+    text-align: end;
+  }
+`
+const PostDiv = styled.div`
+  img {
+    width: 200px;  
+    border: 2px solid #add8e6;
+  }
+  & > h1 {
+    font-size: 30px;
+    font-weight: bold;
+    margin: 40px 0 20px;
+    background-color: #eee;
+    padding: 10px 20px;
+    border-radius: 5px;
+  }
+
+  & > h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 40px 0 16px;
+    border-bottom: 1px solid #add8e6;
+  }
+
+  & > p {
+    line-height: 1.8;
+    letter-spacing: 0.2px;
+  }
+
+  & > ol {
+    list-style-type: decimal;
+    list-style-position: inside;
+  }
+`
 
 export default function BlogId({ blog }) {
   return (
     <div>
-      <div className={styles.titleArea}>
-        <Link href={`/blog/${blog.id}`}>
-          <a className={styles.title}>{blog.title}</a>
-        </Link>
-        <div className={styles.publishedAt}>{transformDate(blog.publishedAt)}</div>
-      </div>
+      <TitleAreaDiv>
+        <PublishedAtDiv>{transformDate(blog.publishedAt)}</PublishedAtDiv>
+        <TitleAnchor href={`/blog/${blog.id}`}>{blog.title}</TitleAnchor>
+      </TitleAreaDiv>
 
       {blog.eyecatch && blog.eyecatch.url
         ? <Image
@@ -23,11 +79,10 @@ export default function BlogId({ blog }) {
         : ''
       }
 
-      <div
+      <PostDiv
         dangerouslySetInnerHTML={{
           __html: `${blog.body}`,
         }}
-        className={styles.post}
       />
     </div>
   );

@@ -1,21 +1,21 @@
 import { client } from '../../libs/client'
-import styles from '../../styles/Index.module.scss'
 import { BlogContentList } from '../../src/types/microCMS'
 import CommonMeta from '../../components/meta'
 import SealFrame from '../../components/frame/sealFrame'
 import GeneralTitle from '../../components/title/generalTitle'
 import BlogContentArea from '../../components/blogContentArea/blogContentArea'　
+import PageTemplate from '../../components/pageTemplate/PageTemplate'
 
 export default function BlogId({ blog }) {
   return (
     <div>
       <CommonMeta/>
-      <main className={styles.main}>
+      <PageTemplate>
         <GeneralTitle />
         <SealFrame>
           <BlogContentArea blog={blog} />
         </SealFrame>
-      </main>
+      </PageTemplate>
     </div>
   );
 }
