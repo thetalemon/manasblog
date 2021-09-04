@@ -4,7 +4,7 @@ import CommonMeta from '../../components/meta'
 import SealFrame from '../../components/frame/sealFrame'
 import GeneralTitle from '../../components/title/generalTitle'
 import BlogContentArea from '../../components/blogContentArea/blogContentArea'　
-import PageTemplate from '../../components/pageTemplate/PageTemplate'
+import PageTemplate from '../../components/pageTemplate/pageTemplate'
 
 export default function BlogId({ blog }) {
   return (
