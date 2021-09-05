@@ -1,20 +1,16 @@
 import { client } from '../../libs/client'
 import { BlogContentList } from '../../src/types/microCMS'
-import CommonMeta from '../../components/meta'
-import SealFrame from '../../components/frame/sealFrame'
 import GeneralTitle from '../../components/title/generalTitle'
-import BlogContentArea from '../../components/blogContentArea/blogContentArea'　
 import PageTemplate from '../../components/pageTemplate/pageTemplate'
+import BlogFrameArea from '../../components/blogContentArea/blogFrameArea'
+import { GetStaticPropsContext } from 'next';
 
 export default function BlogId({ blog }) {
   return (
     <div>
-      <CommonMeta/>
       <PageTemplate>
         <GeneralTitle />
-        <SealFrame>
-          <BlogContentArea blog={blog} />
-        </SealFrame>
+        <BlogFrameArea blog={blog} />
       </PageTemplate>
     </div>
   );
@@ -29,9 +25,9 @@ export const getStaticPaths = async () => {
 };
 
 // データをテンプレートに受け渡す部分の処理を記述します
-export const getStaticProps = async (context) => {
+export const getStaticProps = async (context: GetStaticPropsContext) => {
   const id = context.params.id;
-  const data = await client.get({ endpoint: "blog", contentId: id });
+  const data:BlogContentList = await client.get({ endpoint: "blog", contentId: id.toString() });
 
   return {
     props: {

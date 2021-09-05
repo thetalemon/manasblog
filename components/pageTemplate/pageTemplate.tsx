@@ -1,4 +1,6 @@
 import styled from '@emotion/styled'
+import Footer from '../footer/footer'　
+import CommonMeta from '../meta'
 
 const Main = styled.main`
   width: 100vw;
@@ -9,8 +11,12 @@ const Main = styled.main`
 
 export default function PageTemplate(props) {
   return (
-    <Main>
-      {props.children}
-    </Main>
+    <div>
+      <CommonMeta />
+      <Main>
+        {props.children}
+        <Footer/>
+      </Main>
+    </div>
   );
 }

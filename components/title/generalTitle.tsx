@@ -1,19 +1,19 @@
 import styled from '@emotion/styled'
 
-const BlogTitleAreaDiv = styled.div`
+const HeaderAreaHeader = styled.header`
   background: #add8e6;
 `
 
-const BlogTitleAnchor = styled.a`
+const HeaderAnchor = styled.a`
   display: block;
   font-size: 24px;
   padding: 5px 10px;
   color: white;
 `
-export default function SealFrame() {
+export default function GeneralTitle() {
   return (
-    <BlogTitleAreaDiv>
-      <BlogTitleAnchor href={`/`}>manasblog</BlogTitleAnchor>
-    </BlogTitleAreaDiv>
+    <HeaderAreaHeader>
+      <HeaderAnchor href={`/`}>manasblog</HeaderAnchor>
+    </HeaderAreaHeader>
   );
 }

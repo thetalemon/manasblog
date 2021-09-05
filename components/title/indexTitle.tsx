@@ -3,11 +3,11 @@ import Image from 'next/image'
 import title from '../../public/aza156.png'
 import styled from '@emotion/styled'
 
-const BlogTitleAreaDiv = styled.div`
+const HeaderAreaHeader = styled.header`
   position: relative;
 `
 
-const BlogTitleH2 = styled.h2`
+const HeaderAnchor = styled.a`
   position: absolute;
   top: 50%;
   left: 50%;
@@ -15,16 +15,16 @@ const BlogTitleH2 = styled.h2`
   font-size: 50px;
   transform: translate(-50%, -50%);
 `
-export default function SealFrame() {
+export default function IndexTitle() {
   return (
-    <BlogTitleAreaDiv>
-    <Image
-      src={title}
-      alt="eyecatch"
-      width={840}
-      height={362}
-    />
-    <BlogTitleH2>manasblog</BlogTitleH2>
-  </BlogTitleAreaDiv>
+    <HeaderAreaHeader>
+      <Image
+        src={title}
+        alt="eyecatch"
+        width={840}
+        height={362}
+      />
+      <HeaderAnchor href={'/'}>manasblog</HeaderAnchor>
+    </HeaderAreaHeader>
   );
 }

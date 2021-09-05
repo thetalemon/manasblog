@@ -1,21 +1,19 @@
 import { client } from "../libs/client"
 import { BlogContentList } from '../src/types/microCMS'
-import CommonMeta from '../components/meta'
 import IndexTitle from '../components/title/indexTitle'
-import SealFrame from '../components/frame/sealFrame'
 import PageTemplate from '../components/pageTemplate/pageTemplate'
-import BlogContentArea from '../components/blogContentArea/blogContentArea'　
+import CategoriesBar from '../components/categoriesBar/categoriesBar'
+import BlogFrameArea from '../components/blogContentArea/blogFrameArea'
+import { GetStaticPropsContext } from 'next';
 
 export default function Home({ blog }) {
   return (
     <div>
-      <CommonMeta />
       <PageTemplate>
         <IndexTitle/>
+        <CategoriesBar />
         {blog.map((blog) => (
-          <SealFrame key={blog.id}>
-            <BlogContentArea blog={blog} />
-          </SealFrame>
+          <BlogFrameArea key={blog.id} blog={blog} />
         ))}
       </PageTemplate>
     </div>
