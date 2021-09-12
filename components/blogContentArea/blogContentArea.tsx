@@ -31,8 +31,11 @@ const PublishedAtDiv = styled.p`
 `
 const PostDiv = styled.div`
   img {
-    width: 200px;  
+    width: 100%;
     border: 2px solid #add8e6;
+  }
+  pre {
+    white-space: normal;
   }
   & > h1 {
     font-size: 30px;
