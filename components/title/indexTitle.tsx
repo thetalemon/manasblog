@@ -1,6 +1,5 @@
 
 import Image from 'next/image'
-import title from '../../public/aza156.png'
 import styled from '@emotion/styled'
 
 const HeaderAreaHeader = styled.header`
@@ -19,10 +18,10 @@ export default function IndexTitle() {
   return (
     <HeaderAreaHeader>
       <Image
-        src={title}
+        src="https://manasas.dev/aza156-2.png"
         alt="eyecatch"
         width={840}
-        height={362}
+        height={250}
       />
       <HeaderAnchor href={'/'}>manasblog</HeaderAnchor>
     </HeaderAreaHeader>
