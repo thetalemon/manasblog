@@ -1,14 +1,19 @@
 import styled from '@emotion/styled'
 
 const CategoryAreaDiv = styled.div`
-  background: #4682B4;
   display: flex;
   justify-content: space-between;
-  padding: 4px 36px;
 `
 
 const CategoryAnchor = styled.a`
+  background: #4682B4;
+  width: 25%;
+  padding: 5px 0%;
+  text-align: center;
   color: white;
+  &:hover {
+    opacity: 0.7;
+  }
 `
 export default function CategoriesBar() {
   return (
