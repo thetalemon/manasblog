@@ -14,7 +14,7 @@ revisedAt: string,
 name: string
 }
 
-type Blog = {
+export type Blog = {
   id: string,
   createdAt: string,
   updatedAt: string,
@@ -29,7 +29,6 @@ type Blog = {
 export type BlogContentList = {
   contents: [Blog]
 }
-
 
 export type CategoryContentList = {
   contents: [Category]

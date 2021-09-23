@@ -4,6 +4,7 @@ import styled from '@emotion/styled'
 
 const HeaderAreaHeader = styled.header`
   position: relative;
+  height: 250px;
 `
 
 const HeaderAnchor = styled.a`

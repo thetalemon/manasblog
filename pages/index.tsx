@@ -4,7 +4,7 @@ import IndexTitle from '../components/title/indexTitle'
 import PageTemplate from '../components/pageTemplate/pageTemplate'
 import CategoriesBar from '../components/categoriesBar/categoriesBar'
 import BlogFrameArea from '../components/blogContentArea/blogFrameArea'
-import { GetStaticPropsContext } from 'next';
+import { formatToHightedHtml } from '../components/format/highlight'
 
 export default function Home({ blog }) {
   return (
@@ -23,10 +23,14 @@ export default function Home({ blog }) {
 // データをテンプレートに受け渡す部分の処理を記述します
 export const getStaticProps = async () => {
   const data:BlogContentList = await client.get({ endpoint: "blog" });
+  const mappedContents = data.contents.map((content) => {
+    content.body = formatToHightedHtml(content.body)
+    return content
+  })
 
   return {
     props: {
-      blog: data.contents,
+      blog: mappedContents
     },
   };
 };
