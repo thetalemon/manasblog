@@ -1,10 +1,16 @@
 import SealFrame from '../frame/sealFrame'
-import BlogContentArea from '../blogContentArea/blogContentArea'　
+import BlogContentArea from '../blogContentArea/blogContentArea'
+import { Blog } from '../../src/types/microCMS'
 
-export default function BlogId({ blog }) {
+type PropsType = {
+  blog: Blog,
+  individual?: boolean
+}
+
+export default function BlogId(props: PropsType) {
   return (
     <SealFrame>
-      <BlogContentArea blog={blog} />
+      <BlogContentArea individual={ props.individual } blog={props.blog} />
     </SealFrame>
   );
 }

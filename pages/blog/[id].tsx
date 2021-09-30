@@ -9,9 +9,9 @@ import { GetStaticPropsContext } from 'next';
 export default function BlogId({ blog }) {
   return (
     <div>
-      <PageTemplate>
+      <PageTemplate title={ `${blog.title} - manasblog` } >
         <GeneralTitle />
-        <BlogFrameArea blog={blog} />
+        <BlogFrameArea individual blog={blog} />
       </PageTemplate>
     </div>
   );
