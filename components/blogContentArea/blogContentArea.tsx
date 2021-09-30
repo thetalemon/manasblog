@@ -2,6 +2,7 @@ import Image from 'next/image'
 import { transformDate } from '../format/date'
 import { Blog } from '../../src/types/microCMS'
 import styled from '@emotion/styled'
+import { TwitterShareButton, TwitterIcon } from "react-share";
 
 const TitleAreaDiv = styled.div`
   display: flex;
@@ -87,11 +88,24 @@ const PostDiv = styled.div`
   }
 `
 
-type Props = {
-  blog: Blog
+const ShareDiv = styled.div`
+  text-align: right;
+`
+
+type PropsType = {
+  blog: Blog,
+  individual?: boolean
 }
 
-export default function BlogId({ blog }: Props) {
+export default function BlogId({ blog, individual }: PropsType) {
+  const shareButton = individual ? (
+    <ShareDiv>
+      <TwitterShareButton url={`https://manasblog.vercel.app//blog/${blog.id}`} title={`${blog.title} - manasblog`}>
+        <TwitterIcon size={32} round={true} />
+      </TwitterShareButton>
+    </ShareDiv>)
+    : ('');
+
   return (
     <div>
       <TitleAreaDiv>
@@ -109,7 +123,8 @@ export default function BlogId({ blog }: Props) {
         : ''
       }
 
-      <PostDiv dangerouslySetInnerHTML={{ __html: blog.body }}/>
+      <PostDiv dangerouslySetInnerHTML={{ __html: blog.body }} />
+      { shareButton }
     </div>
   );
 }
