@@ -4,14 +4,19 @@ import GeneralTitle from '../../components/title/generalTitle'
 import PageTemplate from '../../components/pageTemplate/pageTemplate'
 import BlogFrameArea from '../../components/blogContentArea/blogFrameArea'
 import { formatToHightedHtml } from '../../components/format/highlight'
+import { formatImg2Webp } from '../../components/format/webp'
 import { GetStaticPropsContext } from 'next';
 
-export default function BlogId({ blog }) {
+type Props = {
+  blog: Blog
+}
+
+export default function BlogId(props: Props) {
   return (
     <div>
-      <PageTemplate>
+      <PageTemplate title={ `${props.blog.title} - manasblog` } >
         <GeneralTitle />
-        <BlogFrameArea blog={blog} />
+        <BlogFrameArea individual blog={props.blog} />
       </PageTemplate>
     </div>
   );
@@ -27,10 +32,13 @@ export const getStaticPaths = async () => {
 
 // データをテンプレートに受け渡す部分の処理を記述します
 export const getStaticProps = async (context: GetStaticPropsContext) => {
+  if(!context.params) throw Error
   const id = context.params.id;
+  if(!id) throw Error
   const data: Blog = await client.get({ endpoint: "blog", contentId: id.toString() });
 
   data.body = formatToHightedHtml(data.body)
+  data.body = formatImg2Webp(data.body)
 
   return {
     props: {

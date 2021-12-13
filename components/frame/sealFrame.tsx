@@ -22,7 +22,11 @@ const SealDiv = styled.div`
   left: calc(50% - 32px);
 `
 
-export default function SealFrame(props) {
+type Props = {
+  children: React.ReactNode
+}
+
+export default function SealFrame(props: Props) {
   return (
     <CardDiv>
       <SealDiv>

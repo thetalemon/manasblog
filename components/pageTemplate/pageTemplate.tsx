@@ -1,6 +1,7 @@
 import styled from '@emotion/styled'
 import Footer from '../footer/footer'　
 import CommonMeta from '../meta'
+import { ReactNode } from 'react'
 
 const Main = styled.main`
   width: 100vw;
@@ -9,10 +10,16 @@ const Main = styled.main`
   margin: 0 auto;
 `
 
-export default function PageTemplate(props) {
+type propsType = {
+  title?: string,
+  children: ReactNode
+}
+
+export default function PageTemplate(props: propsType) {
+  const meta = props.title ? (<CommonMeta title={ props.title } />) : (<CommonMeta />);
   return (
     <div>
-      <CommonMeta />
+      {meta}
       <Main>
         {props.children}
         <Footer/>
