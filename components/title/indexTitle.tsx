@@ -33,23 +33,6 @@ const HeaderAnchor = styled.a`
   }
 `
 
-const PortfolioAnchorWrapP = styled.p`
-  font-size: 30px;
-  margin: 0;
-  text-align: right;
-  @media only screen and (max-width: 500px) {
-    font-size: 20px;
-  }
-`
-
-const PortfolioAnchor = styled.a`
-  color: rgba(0, 0, 0, 0.4);
-  transform: translate(-50%, -50%);
-  &:hover{
-    opacity: 0.5;
-  }
-`
-
 export default function IndexTitle() {
   return (
     <HeaderAreaHeader>
@@ -59,9 +42,6 @@ export default function IndexTitle() {
       />
       <HeaderTitleArea>
         <HeaderAnchor href={'/'}>manasblog</HeaderAnchor><br />
-        <PortfolioAnchorWrapP>
-          <PortfolioAnchor href={'https://manasas.dev/'}>portfolio</PortfolioAnchor>
-        </PortfolioAnchorWrapP>
       </HeaderTitleArea>
     </HeaderAreaHeader>
   );
