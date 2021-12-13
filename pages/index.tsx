@@ -3,6 +3,7 @@ import { BlogContentList, Blog } from '../src/types/microCMS'
 import IndexTitle from '../components/title/indexTitle'
 import PageTemplate from '../components/pageTemplate/pageTemplate'
 import CategoriesBar from '../components/categoriesBar/categoriesBar'
+import NoticeArea from '../components/noticeArea/noticeArea'
 import BlogFrameArea from '../components/blogContentArea/blogFrameArea'
 import { formatToHightedHtml } from '../components/format/highlight'
 import { formatImg2Webp } from '../components/format/webp'
@@ -17,6 +18,7 @@ export default function Home(props:Props) {
       <PageTemplate>
         <IndexTitle/>
         <CategoriesBar />
+        <NoticeArea />
         {props.blogContentList.map((blog: Blog) => (
           <BlogFrameArea key={blog.id} blog={blog} />
         ))}
